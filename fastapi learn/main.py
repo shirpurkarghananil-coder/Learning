@@ -1,0 +1,12 @@
+from fastapi import FastAPI
+from models import Item
+
+app = FastAPI()
+
+@app.get("/")
+def root():
+    return {"status": "alive"}
+
+@app.post("/items")
+def create_item(item: Item):
+    return {"message" : "Item recieved", "item" : item}
